@@ -5,6 +5,19 @@
 #  t0 : start time of script
 
 DOCKER_NAME=default
+
+while getopts ":d:t" opt; do
+  case ${opt} in
+      d ) 
+	  DOCKER_NAME=$OPTARG
+	  ;;
+      t ) 
+	  ;;
+      \? ) echo "Usage: cmd [-d]" 
+	  ;;
+  esac
+done
+
 DOCKER_IP=$(docker-machine ip ${DOCKER_NAME})
 
 ## send the visualization

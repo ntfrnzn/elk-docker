@@ -29,7 +29,7 @@
 # Cluster name identifies your cluster for auto-discovery. If you're running
 # multiple clusters on the same network, make sure you're using unique names.
 #
-cluster.name: elasticsearch
+cluster.name: cervus_canadensis 
 
 
 #################################### Node #####################################
@@ -37,7 +37,7 @@ cluster.name: elasticsearch
 # Node names are generated dynamically on startup, so you're relieved
 # from configuring them manually. You can tie this node to a specific name:
 #
-#node.name: "Franz Kafka"
+#node.name: 
 
 # Every node can be configured to allow or deny being eligible as the master,
 # and to allow or deny to store the data.
@@ -112,9 +112,9 @@ node.data: true
 
 # Note, that for development on a local machine, with small indices, it usually
 # makes sense to "disable" the distributed features:
-#
-#index.number_of_shards: 1
-#index.number_of_replicas: 0
+
+index.number_of_shards: 1
+index.number_of_replicas: 0
 
 # These settings directly affect the performance of index and search operations
 # in your cluster. Assuming you have enough machines to hold shards and
@@ -318,7 +318,22 @@ node.data: true
 #
 # 1. Disable multicast discovery (enabled by default):
 #
-#discovery.zen.ping.multicast.enabled: false
+discovery.zen.ping.multicast.enabled: false
+
+      # https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-elasticsearch-on-ubuntu-14-04
+      #          Disable multicast discovery: For the reasons I just
+      #          explained you above. This is the default feature most
+      #          people complain about. But the ElasticSearch
+      #          developers want to keep it as it is, because
+      #          ElasticSearch is supposed to scale out of the
+      #          box. Anyway. If you’re running it locally and other
+      #          people in your local network run it too with the same
+      #          default cluster name you will very soon wonder about
+      #          indices you never created on your machine. It’scary
+      #          and funny at the same time. And usually that’s when
+      #          people learn about multicast first and start thinking
+      #          about the configuration.
+
 #
 # 2. Configure an initial list of master nodes in the cluster
 #    to perform discovery when new nodes (master or data) are started:
