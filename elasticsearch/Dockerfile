@@ -3,8 +3,8 @@ FROM elasticsearch
 COPY elasticsearch.yml /usr/share/elasticsearch/config/
 COPY logging.yml /usr/share/elasticsearch/config/
 
-RUN /usr/share/elasticsearch/bin/plugin -install lukas-vlcek/bigdesk
-RUN /usr/share/elasticsearch/bin/plugin -install royrusso/elasticsearch-HQ
+# RUN /usr/share/elasticsearch/bin/plugin -install lukas-vlcek/bigdesk
+# RUN /usr/share/elasticsearch/bin/plugin -install royrusso/elasticsearch-HQ
 
 # -install elasticsearch/marvel/latest
 # -install mobz/elasticsearch-head

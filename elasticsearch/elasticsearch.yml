@@ -200,7 +200,7 @@ index.number_of_replicas: 0
 
 # Set the bind address specifically (IPv4 or IPv6):
 #
-#network.bind_host: 192.168.0.1
+#network.bind_host: 0.0.0.0
 
 # Set the address other nodes will use to communicate with this node. If not
 # set, it is automatically derived. It must point to an actual IP address.
@@ -209,11 +209,11 @@ index.number_of_replicas: 0
 
 # Set both 'bind_host' and 'publish_host':
 #
-#network.host: 192.168.0.1
+network.host: 0.0.0.0
 
 # Set a custom port for the node to node communication (9300 by default):
 #
-#transport.tcp.port: 9300
+transport.tcp.port: 9300
 
 # Enable compression for all communication between nodes (disabled by default):
 #
@@ -221,7 +221,7 @@ index.number_of_replicas: 0
 
 # Set a custom port to listen for HTTP traffic:
 #
-#http.port: 9200
+http.port: 9200
 
 # Set a custom allowed content length:
 #
