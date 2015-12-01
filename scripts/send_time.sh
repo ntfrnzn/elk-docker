@@ -20,10 +20,16 @@ done
 
 DOCKER_IP=$(docker-machine ip ${DOCKER_NAME})
 
-## send the visualization
-# curl -XPOST -d @kibana/epoch_visualization.json \
-#     http://${DOCKER_IP}:5601/elasticsearch/.kibana/visualization/Epoch-Time
+## howto send the visualization
+cat <<EOF
+Here's how to post the visualization
+curl -XPOST -d @kibana/epoch_visualization.json \\
+     --header "kbn-xsrf-token:c069ec5b1a4ca1a16341368f" \\
+     http://${DOCKER_IP}:5601/elasticsearch/.kibana/visualization/Epoch-Time
 
+EOF
+
+echo "...now sending timestamps"
 init_time=$(/bin/date +%s)
 while [ 1 ]
 do curl --silent -XPUT  -H "content-type: application/json" \
